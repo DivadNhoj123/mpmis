@@ -88,14 +88,37 @@
                     </a>
                 </li>
                 <li class="menu-header mt-3">
-                    <span class="menu-header-text">System Settings</span>
+                    <span class="menu-header-text">System Management</span>
                 </li>
-                <li class="menu-item {{ request()->routeIs('manage.index') ? 'active' : '' }}">
-                    <a href="{{ route('manage.index') }}"
-                        class="menu-link {{ request()->routeIs('appointed-officials.index') ? 'active' : '' }}">
-                        <i class="menu-icon tf-icons ri-settings-line"></i>
-                        <div data-i18n="Basic">Manage</div>
+                <li
+                    class="menu-item {{ request()->routeIs(['manage.index', 'my-account', 'my-account-change-password']) ? 'open' : '' }}">
+                    <a href="#" class="menu-link menu-toggle waves-effect">
+                        <i class="menu-icon tf-icons ri-list-settings-fill"></i>
+                        <div data-i18n="Form Elements">Settings</div>
                     </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item {{ request()->routeIs('manage.index') ? 'active' : '' }}">
+                            <a href="{{ route('manage.index') }}"
+                                class="menu-link {{ request()->routeIs('manage.index') ? 'active' : '' }}">
+                                <i class="menu-icon tf-icons ri-database-2-fill me-2"></i>
+                                <div data-i18n="Basic">Manage Database</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->routeIs('my-account') ? 'active' : '' }}">
+                            <a href="{{ route('my-account') }}"
+                                class="menu-link {{ request()->routeIs('my-account') ? 'active' : '' }}">
+                                <i class="menu-icon tf-icons ri-user-5-fill me-2"></i>
+                                <div data-i18n="Basic">My Account</div>
+                            </a>
+                        </li>
+                        <li class="menu-item {{ request()->routeIs('my-account-change-password') ? 'active' : '' }}">
+                            <a href="{{ route('my-account-change-password') }}"
+                                class="menu-link {{ request()->routeIs('my-account-change-password') ? 'active' : '' }}">
+                                <i class="menu-icon tf-icons ri-lock-password-fill me-2"></i>
+                                <div data-i18n="Basic">Change Password</div>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         @endif

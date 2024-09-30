@@ -83,6 +83,6 @@ class TupadController extends Controller
     {
         $count = Tupad::where('status', 'new')->count();
         $tupads = Tupad::where('status', 'new')->get();
-        return view('admin.print', compact('tupads', 'count'));
+        return view('admin-tupad.print', compact('tupads', 'count'));
     }
 }

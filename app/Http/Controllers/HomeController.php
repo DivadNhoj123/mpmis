@@ -29,8 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $electedOfficials = Official::whereIn('position', [1, 2])->count();
-        $appointedOfficials = Official::whereNotIn('position', [1, 2])->count();
+        $electedOfficials = Official::whereIn('position', [1, 2, 3, 4])->count();
+        $appointedOfficials = Official::whereNotIn('position', [1, 2, 3, 4])->count();
         $newlyApplicant = Tupad::where('status', 'new')->count();
         $recentApplicant = Tupad::where('status', 'recent')->count();
 
