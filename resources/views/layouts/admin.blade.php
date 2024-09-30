@@ -47,7 +47,6 @@
     <script src="../assets/js/dashboards-analytics.js"></script>
 
     <script src="../../assets/vendor/libs/datatables-responsive-bs5/datatables-bootstrap5.js"></script>
-    <script src="../../assets/vendor/libs/datatables-responsive-bs5/tables-datatables-advanced.js"></script>
     <script src="../../assets/vendor/libs/select2/select2.js"></script>
     <script src="../../assets/vendor/libs/dropify/dropify.min.js"></script>
 

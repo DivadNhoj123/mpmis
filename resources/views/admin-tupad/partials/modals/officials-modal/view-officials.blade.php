@@ -13,7 +13,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <img class="card-img " style="height: 500px;"
-                                            src="{{ asset('storage/uploads/image/' . $official->image) }}"
+                                            src="{{ asset('storage/uploads/images/' . $official->image) }}"
                                             alt="Card image cap">
                                     </div>
                                 </div>

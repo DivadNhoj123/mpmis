@@ -51,4 +51,12 @@ class ManageController extends Controller
             'message' => 'All appointed Officials have been deleted!'
         ]);
     }
+
+    public function myAccount(){
+        return view('admin-tupad.my-account');
+    }
+
+    public function changePassword(){
+        return view('admin-tupad.change-password');
+    }
 }

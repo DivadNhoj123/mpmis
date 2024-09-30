@@ -205,7 +205,7 @@
                                                             </div>
                                                         @elseif($official === null)
                                                             <div class="avatar me-2"><img
-                                                                    src="{{ asset('storage/uploads/image/1.jpg') }}"
+                                                                    src="{{ asset('storage/uploads/images/1.jpg') }}"
                                                                     alt="title" class="imagecheck-image">
                                                             </div>
                                                         @else
