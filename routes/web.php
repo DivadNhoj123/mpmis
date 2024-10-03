@@ -40,9 +40,6 @@ Route::middleware(['role:1'])->group(function () {
     Route::get('/emptyTupad', [ManageController::class, 'emptyTupad'])->name('empty-tupad');
     Route::get('/emptyElected', [ManageController::class, 'emptyElected'])->name('empty-elected');
     Route::get('/emptyAppointed', [ManageController::class, 'emptyAppointed'])->name('empty-appointed');
-    Route::get('/my-account', [ManageController::class, 'myAccount'])->name('my-account');
-    Route::get('/my-account-change-password', [ManageController::class, 'changePassword'])->name('my-account-change-password');
-    // Route::get('/my-account', [ManageController::class, 'my-account'])->name('my-account');
     Route::post('/import-officials', [ImportController::class, 'importElected'])->name('import-officials');
     Route::post('/import-appointed', [ImportController::class, 'importAppointed'])->name('import-appointed');
 });
@@ -63,3 +60,9 @@ Route::middleware(['role:2'])->group(function () {
     });
     Route::resource('/agriculture-headings', HeadingController::class);
 });
+
+Route::get('/my-account', [ManageController::class, 'myAccount'])->name('my-account');
+// Show the form
+// Route to show the change password form
+Route::get('/my-account-change-password/{id}', [ManageController::class, 'showChangePasswordForm'])->name('show-change-password');
+Route::put('/my-account/change-password/{id}', [ManageController::class, 'changePassword'])->name('my-account-change-password');
