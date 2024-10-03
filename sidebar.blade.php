@@ -104,20 +104,9 @@
                                 <div data-i18n="Basic">Manage Database</div>
                             </a>
                         </li>
-                        <li class="menu-item {{ request()->routeIs('my-account') ? 'active' : '' }}">
-                            <a href="{{ route('my-account') }}"
-                                class="menu-link {{ request()->routeIs('my-account') ? 'active' : '' }}">
-                                <i class="menu-icon tf-icons ri-user-5-fill me-2"></i>
-                                <div data-i18n="Basic">My Account</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->routeIs('show-change-password') ? 'active' : '' }}">
-                            <a href="{{ route('show-change-password', ['id' => Auth::user()->id]) }}"
-                                class="menu-link {{ request()->routeIs('show-change-password') ? 'active' : '' }}">
-                                <i class="menu-icon tf-icons ri-lock-password-fill me-2"></i>
-                                <div data-i18n="Basic">Change Password</div>
-                            </a>
-                        </li>
+
+                        
+                       
                     </ul>
                 </li>
             </ul>

@@ -18,27 +18,55 @@
                                     <div class="card">
                                         <!-- Account Password-->
                                         <div class="card-body pt-0">
-                                            <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                            <form action="{{ route('my-account-change-password', ['id' => $id]) }}" method="POST">
+                                                @csrf
+                                                @method('PUT') <!-- This tells Laravel to treat the form as a PUT request -->
+
                                                 <div class="row mt-1 g-5">
+                                                    <!-- Current Password -->
                                                     <div class="col-md-12">
                                                         <div class="form-floating form-floating-outline">
-                                                            <input class="form-control" type="password"
-                                                                name="currentPassword">
-                                                            <label for="name">Current Password</label>
+                                                            <input class="form-control @error('currentPassword') is-invalid @enderror" type="password" name="currentPassword" id="currentPassword" required>
+                                                            <label for="currentPassword">Current Password</label>
+                                                            @error('currentPassword')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
+
+                                                    <!-- New Password -->
                                                     <div class="col-md-12">
                                                         <div class="form-floating form-floating-outline">
-                                                            <input class="form-control" type="password" name="newpassword">
-                                                            <label for="lastName">New Password</label>
+                                                            <input class="form-control @error('newpassword') is-invalid @enderror" type="password" name="newpassword" id="newpassword" required>
+                                                            <label for="newpassword">New Password</label>
+                                                            @error('newpassword')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Confirm New Password -->
+                                                    <div class="col-md-12">
+                                                        <div class="form-floating form-floating-outline">
+                                                            <input class="form-control @error('newpassword_confirmation') is-invalid @enderror" type="password" name="newpassword_confirmation" id="newpassword_confirmation" required>
+                                                            <label for="newpassword_confirmation">Confirm New Password</label>
+                                                            @error('newpassword_confirmation')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-12">
                                                     <div class="mt-6 d-flex align-items-start align-items-sm-center gap-6">
                                                         <div class="ms-auto">
-                                                            <button type="submit"
-                                                                class="btn btn-info waves-effect waves-light">Save Changes</button>
+                                                            <button type="submit" class="btn btn-info waves-effect waves-light">Save Changes</button>
                                                         </div>
                                                     </div>
                                                 </div>
