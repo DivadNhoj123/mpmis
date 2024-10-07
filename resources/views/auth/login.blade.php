@@ -8,29 +8,16 @@
                 <!-- Login -->
                 <div class="card p-7">
                     <!-- Logo -->
-                    <div class="app-brand justify-content-center mt-5">
-                        <a href="/" class="app-brand-link gap-3">
+                    <div class="app-brand justify-content-center">
+                        <a href="/" class="app-brand-link ">
                             <span class="app-brand-logo demo">
-                                {{-- @if ($settings)
-                                    <img src="{{ asset('storage/uploads/logo/' . $settings->logo) }}" alt=""
-                                        class=" rounded-circle" style="height:50px;">
-                                @else
-                                    <img src="{{ asset('../assets/img/default-logo/no-logo.png') }}" alt=""
-                                        class=" rounded-circle" style="height:50px;">
-                                @endif --}}
-                                <img src="{{ asset('../assets/img/logo/tupad-logo.png') }}" alt=""
-                                    class=" rounded-circle" style="height:50px;">
+                                <img src="{{ asset('../assets/img/logo/system-logo.png') }}" alt=""
+                                    class=" rounded-circle" style="height:200px; width:300px;" >
                             </span>
-
-                            <span
-                                class="app-brand-text demo text-heading fw-semibold">{{ config('app.name', 'MPMIS') }}</span>
                         </a>
                     </div>
                     <!-- /Logo -->
-
-                    <div class="card-body mt-1">
-                        <h5 class="mb-4 text-center">MALITBOG PROGRAM MANAGEMENT INFORMATION SYSTEM</h5>
-
+                    <div class="card-body">
                         <form id="formAuthentication" class="mb-5" action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="mt-2 mb-4">

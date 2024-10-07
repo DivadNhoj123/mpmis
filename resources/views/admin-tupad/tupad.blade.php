@@ -39,6 +39,16 @@
                                             <hr class="dropdown-divider">
                                         </li>
                                         <li>
+                                            <a class="dropdown-item waves-effect" data-bs-toggle="modal"
+                                            data-bs-target="#UploadExcelApplicant">
+                                                <i class="ri-import-line ri-16px me-1_5 text-primary"></i>
+                                               Import
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
                                             <a class="dropdown-item waves-effect text-dark removed" type="submit">
                                                 <i class="ri-delete-bin-line ri-16px me-1_5 text-danger"></i>
                                                 Remove
@@ -46,6 +56,7 @@
                                         </li>
                                     </ul>
                                     @include('admin-tupad.partials.scripts.remove-scripts.remove')
+                                    @include('admin-tupad.partials.modals.upload-applicant-excel')
                                     <button type="button" class="btn btn-success waves-effect waves-light"
                                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasScroll"
                                         aria-controls="offcanvasScroll">
