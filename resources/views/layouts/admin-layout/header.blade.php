@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('../assets/img/logo/tupad-logo.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('../assets/img/logo/system-logo.png') }}" />
     <!-- Favicon -->
     {{-- @if ($settings && $settings->logo)
         <link rel="icon" type="image/x-icon" href="{{ asset('storage/uploads/logo/' . $settings->logo) }}" />

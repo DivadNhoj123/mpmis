@@ -3,35 +3,24 @@
     <div class="app-brand demo">
         <a href="#" class="app-brand-link">
             <span class="app-brand-logo demo me-1">
-                <img src="../assets/img/logo/tupad-logo.png" alt="" class=" rounded-circle" style="height:30px;">
-            </span>
-            <span class="app-brand-text demo menu-text fw-semibold ms-2 text-center">{{ config('app.name', 'MPMIS') }}
-
-                @if (Auth::user()->role == 0)
-                    <br>SYSTEM | ADMIN<br>
-                @elseif (Auth::user()->role == 1)
-                    <br>PESO | TUPAD<br>
-                @elseif (Auth::user()->role == 2)
-                    <br>AGRICULTURE<br>
-                @elseif (Auth::user()->role == 3)
-                    <br>ACAP</br>
-                @endif
+                <img src="{{ asset('../assets/img/logo/system-logo.png') }}" alt="" class=" rounded-circle"
+                    style="height:100px; width:200px;">
             </span>
         </a>
     </div>
 
     <div class="menu-inner-shadow"></div>
     @auth
-        @if (Auth::user()->role == 0)
-            <ul class="menu-inner py-1">
-                <!-- Dashboard -->
-                <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}"
-                        class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                        <i class="menu-icon tf-icons ri-mac-line"></i>
-                        <div data-i18n="Basic">Dashboard</div>
-                    </a>
-                </li>
+        <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+            <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <i class="menu-icon tf-icons ri-mac-line"></i>
+                    <div data-i18n="Basic">Dashboard</div>
+                </a>
+            </li>
+
+            @if (Auth::user()->role == 0)
                 <li class="menu-header mt-3">
                     <span class="menu-header-text">System Settings</span>
                 </li>
@@ -39,27 +28,12 @@
                     <a href="{{ route('accounts.index') }}"
                         class="menu-link {{ request()->routeIs('accounts.index') ? 'active' : '' }}">
                         <i class="menu-icon tf-icons ri-group-line"></i>
-                        <div data-i18n="Basic">Accounts</div>
+                        <div data-i18n="Basic">MPMIS Accounts</div>
                     </a>
                 </li>
-                <li class="menu-item {{ request()->routeIs('accounts.index') ? 'active' : '' }}">
-                    <a href="{{ route('accounts.index') }}"
-                        class="menu-link {{ request()->routeIs('accounts.index') ? 'active' : '' }}">
-                        <i class="menu-icon tf-icons ri-settings-3-line"></i>
-                        <div data-i18n="Basic">Manager</div>
-                    </a>
-                </li>
-            </ul>
-        @endif
-        @if (Auth::user()->role == 1)
-            <ul class="menu-inner py-1">
-                <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}"
-                        class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                        <i class="menu-icon tf-icons ri-mac-line"></i>
-                        <div data-i18n="Basic">Dashboard</div>
-                    </a>
-                </li>
+            @endif
+
+            @if (Auth::user()->role == 1)
                 <li class="menu-header mt-3">
                     <span class="menu-header-text">TUPAD Information</span>
                 </li>
@@ -87,51 +61,9 @@
                         <div data-i18n="Basic">Appointed Officials</div>
                     </a>
                 </li>
-                <li class="menu-header mt-3">
-                    <span class="menu-header-text">System Management</span>
-                </li>
-                <li
-                    class="menu-item {{ request()->routeIs(['manage.index', 'my-account', 'show-change-password']) ? 'open' : '' }}">
-                    <a href="#" class="menu-link menu-toggle waves-effect">
-                        <i class="menu-icon tf-icons ri-list-settings-fill"></i>
-                        <div data-i18n="Form Elements">Settings</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item {{ request()->routeIs('manage.index') ? 'active' : '' }}">
-                            <a href="{{ route('manage.index') }}"
-                                class="menu-link {{ request()->routeIs('manage.index') ? 'active' : '' }}">
-                                <i class="menu-icon tf-icons ri-database-2-fill me-2"></i>
-                                <div data-i18n="Basic">Manage Database</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->routeIs('my-account') ? 'active' : '' }}">
-                            <a href="{{ route('my-account') }}"
-                                class="menu-link {{ request()->routeIs('my-account') ? 'active' : '' }}">
-                                <i class="menu-icon tf-icons ri-user-5-fill me-2"></i>
-                                <div data-i18n="Basic">My Account</div>
-                            </a>
-                        </li>
-                        <li class="menu-item {{ request()->routeIs('show-change-password') ? 'active' : '' }}">
-                            <a href="{{ route('show-change-password', ['id' => Auth::user()->id]) }}"
-                                class="menu-link {{ request()->routeIs('show-change-password') ? 'active' : '' }}">
-                                <i class="menu-icon tf-icons ri-lock-password-fill me-2"></i>
-                                <div data-i18n="Basic">Change Password</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        @endif
-        @if (Auth::user()->role == 2)
-            <ul class="menu-inner py-1">
-                <!-- Dashboard -->
-                <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}"
-                        class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                        <i class="menu-icon tf-icons ri-mac-line"></i>
-                        <div data-i18n="Basic">Dashboard</div>
-                    </a>
-                </li>
+            @endif
+
+            @if (Auth::user()->role == 2)
                 <li class="menu-header mt-3">
                     <span class="menu-header-text">Boat Licensing & Registration</span>
                 </li>
@@ -152,9 +84,9 @@
                 <li class="menu-header mt-3">
                     <span class="menu-header-text">Fisheries Equipment Registration</span>
                 </li>
-                <li class="menu-item {{ request()->routeIs('accounts.index') ? 'active' : '' }}">
-                    <a href="{{ route('accounts.index') }}"
-                        class="menu-link {{ request()->routeIs('accounts.index') ? 'active' : '' }}">
+                <li class="menu-item {{ request()->routeIs('fishing-gear.index') ? 'active' : '' }}">
+                    <a href="{{ route('fishing-gear.index') }}"
+                        class="menu-link {{ request()->routeIs('fishing-gear.index') ? 'active' : '' }}">
                         <i class="menu-icon tf-icons ri-webhook-line"></i>
                         <div data-i18n="Basic">Fishing Gear</div>
                     </a>
@@ -173,15 +105,29 @@
                         <div data-i18n="Basic">Payao</div>
                     </a>
                 </li>
-                <li class="menu-header mt-3">
-                    <span class="menu-header-text">System Management</span>
-                </li>
-                <li class="menu-item {{ request()->routeIs('agriculture-headings.index') ? 'open' : '' }}">
-                    <a href="" class="menu-link menu-toggle waves-effect">
-                        <i class="menu-icon tf-icons ri-settings-line"></i>
-                        <div data-i18n="Form Elements">Settings</div>
-                    </a>
-                    <ul class="menu-sub">
+            @endif
+
+            <li class="menu-header mt-3">
+                <span class="menu-header-text">System Management</span>
+            </li>
+            <li
+                class="menu-item {{ request()->routeIs(['manage.index', 'my-account', 'show-change-password', 'agriculture-headings.index']) ? 'open' : '' }}">
+                <a href="#" class="menu-link menu-toggle waves-effect">
+                    <i class="menu-icon tf-icons ri-list-settings-fill"></i>
+                    <div data-i18n="Form Elements">Settings</div>
+                </a>
+                <ul class="menu-sub">
+                    @if (Auth::user()->role == 1)
+                        <li class="menu-item {{ request()->routeIs('manage.index') ? 'active' : '' }}">
+                            <a href="{{ route('manage.index') }}"
+                                class="menu-link {{ request()->routeIs('manage.index') ? 'active' : '' }}">
+                                <i class="menu-icon tf-icons ri-database-2-fill me-2"></i>
+                                <div data-i18n="Basic">Manage Database</div>
+                            </a>
+                        </li>
+                    @endif
+
+                    @if (Auth::user()->role == 2)
                         <li class="menu-item {{ request()->routeIs('agriculture-headings.index') ? 'active' : '' }}">
                             <a href="{{ route('agriculture-headings.index') }}"
                                 class="menu-link {{ request()->routeIs('agriculture-headings.index') ? 'active' : '' }}">
@@ -189,10 +135,28 @@
                                 Print Headings
                             </a>
                         </li>
-                    </ul>
-                </li>
-            </ul>
-        @endif
+                    @endif
+
+                    <li class="menu-item {{ request()->routeIs('my-account') ? 'active' : '' }}">
+                        <a href="{{ route('my-account', ['id' => Auth::user()->id]) }}"
+                            class="menu-link {{ request()->routeIs('my-account') ? 'active' : '' }}">
+                            <i class="menu-icon tf-icons ri-user-5-fill me-2"></i>
+                            <div data-i18n="Basic">My Account</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('show-change-password') ? 'active' : '' }}">
+                        <a href="{{ route('show-change-password', ['id' => Auth::user()->id]) }}"
+                            class="menu-link {{ request()->routeIs('show-change-password') ? 'active' : '' }}">
+                            <i class="menu-icon tf-icons ri-lock-password-fill me-2"></i>
+                            <div data-i18n="Basic">Change Password</div>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+
     @endauth
 </aside>
 <!-- / Menu -->
