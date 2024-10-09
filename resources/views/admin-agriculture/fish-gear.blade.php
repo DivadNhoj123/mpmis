@@ -180,7 +180,7 @@
                                                 <div class="col mb-6">
                                                     <div class="form-floating form-floating-outline">
                                                         <input type="text" id="net_heigth" class="form-control"
-                                                            placeholder="Enter exact net heigth/depth" name="net_heigth">
+                                                            placeholder="Enter exact net heigth/depth" name="net_depth">
                                                         <label for="net_heigth">Heigth/Depth</label>
                                                     </div>
                                                 </div>
@@ -204,7 +204,7 @@
                                                 <div class="col mb-6">
                                                     <div class="form-floating form-floating-outline">
                                                         <input type="text" id="trap_heigth" class="form-control"
-                                                            placeholder="Enter trap heigth/depth" name="trap_heigth">
+                                                            placeholder="Enter trap heigth/depth" name="trap_height">
                                                         <label for="trap_heigth">Heigth/Depth(feet)</label>
                                                     </div>
                                                 </div>
@@ -301,9 +301,6 @@
                                             <td>
                                                 <div class="btn-group " role="group"
                                                     aria-label="Button group with nested dropdown">
-                                                    <button type="button" class="btn btn-info waves-effect">
-                                                        <i class="tf-icons ri-eye-line"></i>
-                                                    </button>
                                                     <div class="btn-group" role="group">
                                                         <button id="btnGroupDrop1" type="button"
                                                             class="btn btn-danger dropdown-toggle waves-effect btn-sm"
@@ -313,24 +310,24 @@
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"
                                                             style="">
-                                                            <a class="dropdown-item waves-effect"
-                                                                href="javascript:void(0);">
-                                                                <i class="tf-icons ri-download-line text-success me-1"></i>
-                                                                Download
+                                                            <a class="dropdown-item waves-effect" data-bs-toggle="modal"
+                                                                data-bs-target="#edit{{$gear->id}}">
+                                                                <i class="tf-icons ri-eye-line text-primary me-1"></i>
+                                                                View| Edit
                                                             </a>
                                                             <hr class="dropdown-divider">
                                                             <a class="dropdown-item waves-effect"
-                                                                href="javascript:void(0);">
+                                                                href="{{ route('print-registration',$gear->id)}}">
                                                                 <i class="tf-icons ri-printer-line text-info me-1"></i>
                                                                 Print
                                                             </a>
                                                             <hr class="dropdown-divider">
-                                                            <a class="dropdown-item waves-effect"
-                                                                href="javascript:void(0);">
+                                                            <a class="dropdown-item waves-effect delete" data-id="{{$gear->id}}" href="javascript:void(0);">
                                                                 <i class="tf-icons ri-delete-bin-line text-danger me-1"></i>
                                                                 Delete
                                                             </a>
                                                         </div>
+                                                        @include('admin-agriculture.partials.modals.fishing-gear.fishing-gear')
                                                     </div>
                                                 </div>
                                             </td>
@@ -344,6 +341,7 @@
             </div>
         </div>
         <!-- / Content -->
+        @include('admin-agriculture.partials.scripts.fishing-gear')
         @include('admin-tupad.partials.scripts.officials-scripts.success-officials')
         <div class="content-backdrop fade"></div>
     </div>

@@ -16,6 +16,7 @@ use App\Http\Controllers\GearLicencingController;
 use App\Http\Controllers\HeadingController;
 use App\Http\Controllers\MotorizedController;
 use App\Http\Controllers\NonMotorizedController;
+use App\Models\GearLicence;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -61,6 +62,7 @@ Route::middleware(['role:2'])->group(function () {
         return Excel::download(new ExportNonMotorized, 'Masterlist of Non - motorized Boat Registration.xlsx');
     });
     Route::resource('/fishing-gear', GearLicencingController::class);
+    Route::get('/print-registration/{id}', [GearLicencingController::class, 'print'])->name('print-registration');
     Route::resource('/agriculture-headings', HeadingController::class);
 });
 
