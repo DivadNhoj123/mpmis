@@ -55,10 +55,43 @@ class ManageController extends Controller
         ]);
     }
 
-    public function myAccount()
+    public function myAccount($id)
     {
+        return view('admin-tupad.my-account', ['id' => $id]);
+    }
 
-        return view('admin-tupad.my-account');
+    public function updateAccount(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'image' => 'nullable',
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        if ($validated) {
+            $user = User::findOrFail($id);
+
+            $now = new \DateTime('NOW');
+            $date = $now->format('m-d-Y_H.i.s.u');
+            if ($request->hasFile('image')) {
+                $image = $request->file('image')->getClientOriginalName();
+                $image_filename = str_replace(' ', '_', pathinfo($image, PATHINFO_FILENAME));
+                $image_extension = $request->file('image')->getClientOriginalExtension();
+                $image = $image_filename . '-' . $date . '.' . $image_extension;
+                $path_image = $request->file('image')->storeAs('public/uploads/image', $image);
+            } else {
+                $image = '1.jpg';
+            }
+            $user->update([
+                'image' => $image,
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+
+            if ($user) {
+                return redirect()->route('my-account', ['id'=>$id])->with('success', 'Account Information Updated!!');
+            }
+        }
     }
 
     public function showChangePasswordForm($id)

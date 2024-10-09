@@ -12,9 +12,11 @@ use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\OfficialController;
 use App\Http\Controllers\AppointedController;
+use App\Http\Controllers\GearLicencingController;
 use App\Http\Controllers\HeadingController;
 use App\Http\Controllers\MotorizedController;
 use App\Http\Controllers\NonMotorizedController;
+use App\Models\GearLicence;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -42,6 +44,7 @@ Route::middleware(['role:1'])->group(function () {
     Route::get('/emptyAppointed', [ManageController::class, 'emptyAppointed'])->name('empty-appointed');
     Route::post('/import-officials', [ImportController::class, 'importElected'])->name('import-officials');
     Route::post('/import-appointed', [ImportController::class, 'importAppointed'])->name('import-appointed');
+    Route::post('/import-applicant', [ImportController::class, 'importApplicant'])->name('import-applicant');
 });
 
 //Route for role = 2 (AGRICULTURE)
@@ -58,11 +61,12 @@ Route::middleware(['role:2'])->group(function () {
     Route::get('/export-non-motorized', function () {
         return Excel::download(new ExportNonMotorized, 'Masterlist of Non - motorized Boat Registration.xlsx');
     });
+    Route::resource('/fishing-gear', GearLicencingController::class);
+    Route::get('/print-registration/{id}', [GearLicencingController::class, 'print'])->name('print-registration');
     Route::resource('/agriculture-headings', HeadingController::class);
 });
 
-Route::get('/my-account', [ManageController::class, 'myAccount'])->name('my-account');
-// Show the form
-// Route to show the change password form
+Route::get('/my-account/{id}', [ManageController::class, 'myAccount'])->name('my-account');
+Route::put('/my-account/{id}', [ManageController::class, 'updateAccount'])->name('update-account');
 Route::get('/my-account-change-password/{id}', [ManageController::class, 'showChangePasswordForm'])->name('show-change-password');
 Route::put('/my-account/change-password/{id}', [ManageController::class, 'changePassword'])->name('my-account-change-password');

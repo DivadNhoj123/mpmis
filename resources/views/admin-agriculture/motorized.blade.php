@@ -265,26 +265,36 @@
                                             </td>
 
                                             <td>
-                                                <div class="d-flex flex-column align-items-center">
-                                                    <div class="btn-toolbar demo-inline-spacing gap-2" role="toolbar"
-                                                        aria-label="Toolbar with button groups">
-                                                        <div class="btn-group" role="group" aria-label="Second group">
-                                                            <button type="button" class="btn btn-info waves-effect"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#fullscreenModal{{ $register->id }}">
-                                                                View
-                                                            </button>
-                                                            <button type="button " class="btn btn-warning waves-effect renew"
-                                                            data-id="{{$register->id}}"
-                                                            data-owner="{{$register->owner}}"
-                                                            data-registration="{{$register->registration_no}}"
-                                                            data-serial="{{$register->engine_serial}}"
-                                                            data-color="{{$register->color}}">
+                                                <div class="btn-group " role="group"
+                                                    aria-label="Button group with nested dropdown">
+                                                    <div class="btn-group" role="group">
+                                                        <button id="btnGroupDrop1" type="button"
+                                                            class="btn btn-danger dropdown-toggle waves-effect btn-sm"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <span class="d-none d-sm-block">Action</span>
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"
+                                                            style="">
+                                                            <a class="dropdown-item waves-effect"  data-bs-toggle="modal"
+                                                            data-bs-target="#fullscreenModal{{ $register->id }}">
+                                                                <i class="tf-icons ri-eye-line text-primary me-1"></i>
+                                                                View| Edit
+                                                            </a>
+                                                            <hr class="dropdown-divider">
+                                                            <a class="dropdown-item waves-effect renew"   data-id="{{$register->id}}"
+                                                                data-owner="{{$register->owner}}"
+                                                                data-registration="{{$register->registration_no}}"
+                                                                data-serial="{{$register->engine_serial}}"
+                                                                data-color="{{$register->color}}">
+                                                                <i
+                                                                    class="tf-icons ri-edit-box-line text-info me-1 "></i>
                                                                 Renew
-                                                            </button>
+                                                            </a>
                                                         </div>
+                                                        @include('admin-agriculture.partials.modals.boat-registration.view-registrations')
+
                                                     </div>
-                                                    @include('admin-agriculture.partials.modals.boat-registration.view-registrations')
                                                 </div>
                                             </td>
                                             @include('admin-agriculture.partials.scripts.motorized')
