@@ -107,6 +107,8 @@ class GearLicencingController extends Controller
                 'hook_size' => $request->hook_size,
                 'hook_no' => $request->hook_no,
             ]);
+
+            dd($register);
             if ($register) {
                 return redirect()->route('fishing-gear.index')->with('success', 'Registered successfully!!');
             } else {

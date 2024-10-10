@@ -20,7 +20,7 @@
                         <div class="form-floating form-floating-outline form-floating-select2">
                             <select id="select2Basic" class="select2 form-select form-select-lg" data-allow-clear="true"
                                 name="address">
-                                <option value="{{ $gear->address }}" disabled selected>{{ $gear->address }}
+                                <option value="{{ $gear->address }}"  selected>{{ $gear->address }}
                                 </option>
                                 <option value="Abgao">Abgao</option>
                                 <option value="Aurora">Aurora</option>
@@ -85,7 +85,7 @@
                         <div class="form-floating form-floating-outline form-floating-select2">
                             <select id="select2Basic" class="select2 form-select form-select-lg" data-allow-clear="true"
                                 name="place_issued">
-                                <option value="{{ $gear->place_issued }}" disabled selected>{{ $gear->place_issued }}
+                                <option value="{{ $gear->place_issued }}"  selected>{{ $gear->place_issued }}
                                 </option>
                                 <option value="Abgao">Abgao</option>
                                 <option value="Aurora">Aurora</option>
