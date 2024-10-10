@@ -21,7 +21,7 @@
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a class="dropdown-item waves-effect" href="{{route('non-motorized-print')}}">
-                                                <i class="ri-printer-line ri-16px me-1_5"></i>
+                                                <i class="ri-printer-line ri-16px me-1_5 text-info"></i>
                                                 Print
                                             </a>
                                         </li>
@@ -30,7 +30,7 @@
                                         </li>
                                         <li>
                                             <a class="dropdown-item waves-effect" href="{{ url('/export-non-motorized') }}">
-                                                <i class="ri-file-excel-line ri-16px me-1_5"></i>
+                                                <i class="ri-file-excel-line ri-16px me-1_5 text-success"></i>
                                                 Excel
                                             </a>
                                         </li>

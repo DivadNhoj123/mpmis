@@ -17,11 +17,24 @@ use App\Http\Controllers\HeadingController;
 use App\Http\Controllers\MotorizedController;
 use App\Http\Controllers\NonMotorizedController;
 use App\Models\GearLicence;
+use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/clear', function () {
+    Artisan::call('route:clear');
+    return "Routes cache cleared!";
+});
+Route::get('/view', function () {
+    Artisan::call('view:clear');
+    return "view cache cleared!";
+});
+Route::get('/config', function () {
+    Artisan::call('config:clear');
+    return "config cache cleared!";
+});
 Auth::routes();
 
 Route::get('/mpmis-dashboard', [HomeController::class, 'index'])->name('dashboard');
