@@ -20,9 +20,10 @@ class ImportApplicant implements ToCollection
                 Tupad::create([
                     'name' => $row[0],         // Name
                     'initial' => $row[1] ?? null,   // Initials
-                    'surname' => $row[2],      // Surname
-                    'barangay' => $row[3] ?? null,  // Barangay
-                    'status' => $row[4] ?? 'unknown', // Status
+                    'surname' => $row[2],
+                    'suffix' => $row[3] ?? null,         // Surname
+                    'barangay' => $row[4] ?? null,  // Barangay
+                    'status' => $row[5] ?? 'unknown', // Status
                 ]);
             } else {
 
